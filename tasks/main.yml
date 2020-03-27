@@ -1,1 +1,33 @@
 ---
+- name: Check if node_exporter is already installed
+  stat:
+    path: "{{ node_exporter_final_dest }}/node_exporter"
+  register: executable
+
+- name: If node_exporter is installed, check version
+  shell: "{{ node_exporter_final_dest }}/node_exporter --version 2>&1 | sed -n 1p | awk '{print $3}'"
+  changed_when: false
+  when:
+    - executable.stat.exists
+  register: version
+
+- name: Check if versions match
+  set_fact:
+    version_match: "{{ version.stdout | default('not installed') == node_exporter_version }}"
+
+- name: Download node_exporter from {{ node_exporter_url }}
+  unarchive:
+    src: "{{ node_exporter_url }}"
+    remote_src: true
+    dest: "{{ node_exporter_final_dest }}"
+    list_files: true
+  when:
+    - not executable.stat.exists or not version_match
+  environment:
+    PATH: /usr/local/bin:{{ ansible_env.PATH }}
+  register: list_files
+
+- name: Move node_exporter executable to {{ node_exporter_final_dest }}/node_exporter
+  command: mv {{ node_exporter_final_dest }}/{{ list_files.files[0] }}/node_exporter {{ node_exporter_final_dest }}/node_exporter
+  when:
+    - list_files.changed
