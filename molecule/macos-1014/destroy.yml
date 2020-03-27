@@ -1,0 +1,9 @@
+---
+- gather_facts: false
+  name: Destroy
+  hosts: all
+  tasks:
+    - name: Delete node exporter test directory
+      file:
+        path: /tmp/node_exporter_test
+        state: absent

@@ -1,0 +1,21 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: delegated
+  identity_file: ~/.ssh/id_rsa
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
+platforms:
+  - name: ${MACOS_1014_DEV}
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      ${MACOS_1014_DEV}:
+        ansible_python_interpreter: "/usr/bin/python"
+verifier:
+  name: testinfra
