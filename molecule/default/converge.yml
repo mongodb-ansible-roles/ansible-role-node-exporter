@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-role-node-exporter"
+      include_role:
+        name: "ansible-role-node-exporter"
+      vars:
+        node_exporter_version: 1.0.0-rc.0

@@ -11,6 +11,18 @@ lint: |
 platforms:
   - name: debian9
     image: debian:9
+  - name: debian10
+    image: debian:10
+  - name: ubuntu1604
+    image: ubuntu:16.04
+  - name: ubuntu1804
+    image: ubuntu:18.04
+  - name: ubuntu2004
+    image: ubuntu:20.04
+  - name: ubi7
+    image: registry.redhat.io/ubi7
+  - name: ubi8
+    image: registry.redhat.io/ubi8
 provisioner:
   name: ansible
 verifier:

@@ -7,5 +7,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 ).get_hosts('all')
 
 
-def test_host(host):
-    assert host.file("/etc/hosts").exists
+def test_node_exporter(host):
+    assert host.file("/usr/local/bin/node_exporter").exists
+    cmd = host.run("/usr/local/bin/node_exporter --version 2>&1 |"
+                   "sed -n 1p | awk '{print $3}'")
+    assert cmd.stdout == "1.0.0-rc.0\n"
