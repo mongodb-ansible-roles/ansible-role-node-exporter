@@ -2,12 +2,25 @@
 galaxy_info:
   author: MongoDB
   role_name: node-exporter
-  description: Installs node exporter
+  description: Installs node exporter on a variety of systems
   license: Apache
   min_ansible_version: 2.8
   platforms:
     - name: debian
       versions:
         - buster
+        - stretch
+    - name: ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
+    - name: el
+      versions:
+        - 7
+        - 8
+    - name: macosx
+      versions:
+        - 10.14
   galaxy_tags:
-    - node-exporter
+    - nodeexporter
