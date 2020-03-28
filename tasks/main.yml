@@ -5,7 +5,9 @@
   register: executable
 
 - name: If node_exporter is installed, check version
-  shell: "{{ node_exporter_final_dest }}/node_exporter --version 2>&1 | sed -n 1p | awk '{print $3}'"
+  shell: |
+    set -o pipefail
+    {{ node_exporter_final_dest }}/node_exporter --version 2>&1 | sed -n 1p | awk '{print $3}'
   changed_when: false
   when:
     - executable.stat.exists
