@@ -26,8 +26,30 @@ Example Playbook
         node_exporter_version: 1.0.0-rc.0
 ```
 
-Important Notes
----------------
+SSH Config
+----------
+
+In order to get the delegated driver to work in molecule, you must set the `SSH_CONFIG` secret in GitHub Actions.
+An example would look like:
+```
+Host my-host-dev
+  HostName my-host-dev.something.somewhere.cc
+  Port 22
+  IdentityFile ~/.ssh/id_rsa
+  PreferredAuthentications publickey
+  User cloud-user
+```
+The host will correspond to the list of `platforms` in the `molecule.yml` file
+```
+# molecule.yml
+...
+platforms:
+  - name: my-host-dev
+...
+```
+
+MacOS Specific Notes
+--------------------
 
 The macos-1014 distro, and Macs in general, have the BSD version of tar installed.
 
