@@ -1,9 +1,26 @@
 ---
-- gather_facts: false
-  name: Destroy
+- name: Destroy
   hosts: all
   tasks:
     - name: Delete node exporter test directory
       file:
         path: /tmp/node_exporter_test
+        state: absent
+
+    - name: Check if node_exporter daemon is running
+      become: true
+      shell: launchctl list | grep node_exporter_test
+      changed_when: false
+      ignore_errors: true
+      register: launchctl_list
+
+    - name: Stop node exporter test daemon
+      become: true
+      command: launchctl unload /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist
+      when: launchctl_list is succeeded
+
+    - name: Remove test node exporter plist file
+      become: true
+      file:
+        path: /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist
         state: absent

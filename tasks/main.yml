@@ -32,3 +32,8 @@
   command: mv {{ node_exporter_final_dest }}/{{ list_files.files[0] }}/node_exporter {{ node_exporter_final_dest }}/node_exporter
   when:
     - list_files.changed
+
+- name: Setup startup script for node_exporter on Mac
+  include_tasks: setup-macos-1014.yml
+  when:
+    - ansible_distribution == "MacOSX"
