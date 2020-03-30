@@ -3,7 +3,6 @@ dependency:
   name: galaxy
 driver:
   name: delegated
-  identity_file: ~/.ssh/id_rsa
 lint: |
   set -e
   yamllint .
