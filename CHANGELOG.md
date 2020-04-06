@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.0.0...v1.1.0) (2020-04-06)
+
+
+### Features
+
+* Initial functionality ([ed55639](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/ed556395aee6473d3b464f63b0ab115970d46484)), closes [/github.com/ansible/ansible/pull/36357#issuecomment-463855017](https://github.com//github.com/ansible/ansible/pull/36357/issues/issuecomment-463855017)
+
 # 1.0.0 (2020-03-27)
 
 
