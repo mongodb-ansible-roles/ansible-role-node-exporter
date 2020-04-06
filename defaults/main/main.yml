@@ -1,7 +1,5 @@
 ---
 node_exporter_final_dest: /usr/local/bin
 node_exporter_listen_port: 9100
-node_exporter_plist_dest: /Library/LaunchDaemons/org.mongodb.node_exporter.plist
-node_exporter_plist_label: node_exporter
 node_exporter_url: https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.{{ distro }}-{{ architecture }}.tar.gz
 node_exporter_version: 1.0.0-rc.0
