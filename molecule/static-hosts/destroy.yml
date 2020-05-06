@@ -1,0 +1,54 @@
+---
+- name: Destroy macos-1014
+  hosts: macos-1014
+  tasks:
+    - name: Check if node_exporter daemon is running
+      become: true
+      shell: launchctl list | grep node_exporter_test
+      changed_when: false
+      ignore_errors: true
+      register: launchctl_list
+
+    - name: Stop node exporter test daemon
+      become: true
+      command: launchctl unload /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist
+      when: launchctl_list is succeeded
+
+    - name: Remove test node exporter plist file
+      become: true
+      file:
+        path: /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist
+        state: absent
+
+- name: Destroy rhel81-power8
+  hosts: rhel81-power8
+  tasks:
+    - name: Check if node_exporter service exists  # noqa 303
+      shell: systemctl list-units --full -all | grep node_exporter_test
+      register: node_exporter_service_exists
+      ignore_errors: true
+      changed_when: false
+
+    - name: Stop node_exporter service
+      become: true
+      systemd:
+        name: node_exporter_test
+        state: stopped
+        enabled: false
+      when: node_exporter_service_exists is succeeded
+
+    - name: Delete test files
+      become: true
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /etc/systemd/system/node_exporter_test.service
+
+- name: Destroy
+  hosts: all
+  tasks:
+    - name: Delete node exporter test directory
+      file:
+        path: /tmp/node_exporter_test
+        state: absent

@@ -9,12 +9,13 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: macos-1014-dev
+  - name: macos-1014
+  - name: rhel81-power8
 provisioner:
   name: ansible
   inventory:
     host_vars:
-      macos-1014-dev:
+      macos-1014:
         ansible_python_interpreter: "/usr/bin/python"
 verifier:
   name: testinfra
