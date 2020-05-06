@@ -1,0 +1,13 @@
+---
+- name: Converge macos-cataline
+  hosts: macos-catalina
+  tasks:
+    - name: "Include ansible-role-node-exporter"
+      include_role:
+        name: "ansible-role-node-exporter"
+      vars:
+        node_exporter_final_dest: /tmp/node_exporter_test
+        node_exporter_version: 1.0.0-rc.0
+        node_exporter_listen_port: 9101
+        node_exporter_plist_label: node_exporter_test
+        node_exporter_plist_dest: /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist

@@ -1,0 +1,8 @@
+---
+- name: Prepare
+  hosts: all
+  tasks:
+    - name: Install GNU tar for Mac from Brew
+      homebrew:
+        name: gnu-tar
+        state: present

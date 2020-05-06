@@ -9,7 +9,7 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: macos-1014
+  #- name: macos-1014
   - name: rhel81-power8
 provisioner:
   name: ansible
