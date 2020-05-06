@@ -1,9 +1,0 @@
----
-- gather_facts: false
-  name: Create
-  hosts: all
-  tasks:
-    - name: Create node exporter test directory
-      file:
-        path: /tmp/node_exporter_test
-        state: directory
