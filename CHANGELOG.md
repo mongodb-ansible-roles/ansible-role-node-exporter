@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.1.0...v1.2.0) (2020-05-11)
+
+
+### Features
+
+* Add rhel81-power8 support ([#2](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/issues/2)) ([3a2e19a](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/3a2e19a8e7d548381413bd3db2295e18e30fa2d2))
+
 # [1.1.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.0.0...v1.1.0) (2020-04-06)
 
 
