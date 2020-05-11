@@ -1,6 +1,6 @@
 ---
-- name: Converge
-  hosts: all
+- name: Converge macos-cataline
+  hosts: macos-catalina
   tasks:
     - name: "Include ansible-role-node-exporter"
       include_role:

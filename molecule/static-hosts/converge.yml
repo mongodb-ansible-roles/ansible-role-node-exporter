@@ -1,0 +1,29 @@
+---
+- name: Converge rhel81-power8
+  hosts: rhel81-power8
+  tasks:
+    - name: "Include ansible-role-node-exporter"
+      include_role:
+        name: "ansible-role-node-exporter"
+      vars:
+        node_exporter_final_dest: /tmp/node_exporter_test
+        node_exporter_listen_port: 9101
+        node_exporter_sysconfig_file_dest: /tmp/node_exporter_test/sysconfig.node_exporter
+        node_exporter_systemd_description: Node Exporter Test
+        node_exporter_systemd_service_file_dest: /etc/systemd/system/
+        node_exporter_systemd_start_cmd: /tmp/node_exporter_test/node_exporter $OPTIONS
+        node_exporter_systemd_name: node_exporter_test
+        node_exporter_version: 1.0.0-rc.0
+
+- name: Converge macos-1014
+  hosts: macos-1014
+  tasks:
+    - name: "Include ansible-role-node-exporter"
+      include_role:
+        name: "ansible-role-node-exporter"
+      vars:
+        node_exporter_final_dest: /tmp/node_exporter_test
+        node_exporter_version: 1.0.0-rc.0
+        node_exporter_listen_port: 9101
+        node_exporter_plist_label: node_exporter_test
+        node_exporter_plist_dest: /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist

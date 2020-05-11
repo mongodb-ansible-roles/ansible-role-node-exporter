@@ -9,7 +9,7 @@
     <array>
             <string>sh</string>
             <string>-c</string>
-            <string>/usr/local/bin/node_exporter --web.listen-address=":{{ node_exporter_listen_port }}"</string>
+            <string>{{ node_exporter_final_dest }}/node_exporter --web.listen-address=":{{ node_exporter_listen_port }}"</string>
     </array>
 
     <key>KeepAlive</key>

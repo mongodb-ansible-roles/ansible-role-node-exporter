@@ -1,0 +1,10 @@
+[Unit]
+Description={{ node_exporter_systemd_description }}
+
+[Service]
+User={{ node_exporter_systemd_user }}
+EnvironmentFile={{ node_exporter_sysconfig_file_dest }}
+ExecStart={{ node_exporter_systemd_start_cmd }}
+
+[Install]
+WantedBy=multi-user.target

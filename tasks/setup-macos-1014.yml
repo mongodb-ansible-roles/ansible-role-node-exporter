@@ -26,3 +26,13 @@
   become: true
   command: launchctl load {{ node_exporter_plist_dest }}
   when: launchctl_list is not succeeded
+
+- name: Check if node_exporter daemon is running
+  become: true
+  shell: launchctl list | grep {{ node_exporter_plist_label }}
+  changed_when: false
+  ignore_errors: true
+  register: launchctl_list
+
+- debug:
+    msg: "{{ launchctl_list }}"

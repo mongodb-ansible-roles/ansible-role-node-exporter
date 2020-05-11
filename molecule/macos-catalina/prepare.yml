@@ -1,0 +1,12 @@
+---
+- name: Prepare
+  hosts: all
+  tasks:
+    - name: Create node exporter test directory
+      file:
+        path: /tmp/node_exporter_test
+        state: directory
+    - name: Install GNU tar for Mac from Brew
+      homebrew:
+        name: gnu-tar
+        state: present
