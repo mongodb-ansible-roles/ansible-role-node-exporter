@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.2.0...v1.2.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* Added node_exporter to ExecStart ([8d63e12](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/8d63e1210eeab8533bbda20604d9e26bb8902ca7))
+
 # [1.2.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.1.0...v1.2.0) (2020-05-11)
 
 
