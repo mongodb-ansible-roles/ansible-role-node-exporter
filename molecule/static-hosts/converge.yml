@@ -1,6 +1,6 @@
 ---
-- name: Converge rhel81-power8
-  hosts: rhel81-power8
+- name: Converge rhel81-power8, rhel90-s390x
+  hosts: rhel81-power8,rhel80-s390x
   tasks:
     - name: "Include ansible-role-node-exporter"
       include_role:

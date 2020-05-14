@@ -20,8 +20,8 @@
         path: /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist
         state: absent
 
-- name: Destroy rhel81-power8
-  hosts: rhel81-power8
+- name: Destroy rhel81-power8, rhel80-s390x
+  hosts: rhel81-power8,rhel80-s390x
   tasks:
     - name: Check if node_exporter service exists  # noqa 303
       shell: systemctl list-units --full -all | grep node_exporter_test

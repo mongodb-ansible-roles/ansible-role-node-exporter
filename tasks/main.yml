@@ -38,9 +38,16 @@
   when:
     - ansible_distribution == "MacOSX"
 
-- name: Setup systemd for node_exporter on RHEL
+- name: Setup systemd for node_exporter on rhel81-power8
   include_tasks: setup-rhel81-power8.yml
   when:
     - ansible_distribution == "RedHat"
     - ansible_architecture == "ppc64le"
+    - ansible_distribution_major_version is version("8", "==")
+
+- name: Setup systemd for node_exporter on rhel80-s390x
+  include_tasks: setup-rhel80-s390x.yml
+  when:
+    - ansible_distribution == "RedHat"
+    - ansible_architecture == "s390x"
     - ansible_distribution_major_version is version("8", "==")
