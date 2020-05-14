@@ -38,7 +38,7 @@
   when:
     - ansible_distribution == "MacOSX"
 
-- name: Setup systemd for node_exporter on rhel
+- name: Setup systemd for node_exporter on {{ ansible_architecture }}
   include_tasks: setup-rhel.yml
   when:
     - ansible_distribution == "RedHat"
