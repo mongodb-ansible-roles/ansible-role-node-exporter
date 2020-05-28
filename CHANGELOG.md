@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.3.0...v1.4.0) (2020-05-28)
+
+
+### Features
+
+* Add support for systemd hosts ([#4](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/issues/4)) ([c235277](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/c2352778a78d3f766324e54d087f985f6af5329a))
+
 # [1.3.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.2.1...v1.3.0) (2020-05-14)
 
 
