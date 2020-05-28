@@ -20,30 +20,30 @@
         path: /Library/LaunchDaemons/org.mongodb.node_exporter_test.plist
         state: absent
 
-- name: Destroy rhel81-power8, rhel80-s390x
-  hosts: rhel81-power8,rhel80-s390x
+- name: Destroy systemd hosts
+  hosts: all
   tasks:
-    - name: Check if node_exporter service exists  # noqa 303
-      shell: systemctl list-units --full -all | grep node_exporter_test
-      register: node_exporter_service_exists
-      ignore_errors: true
-      changed_when: false
+    - name: Run destroy tasks on systemd services
+      block:
+        - name: Check if node_exporter service exists
+          service_facts:
 
-    - name: Stop node_exporter service
-      become: true
-      systemd:
-        name: node_exporter_test
-        state: stopped
-        enabled: false
-      when: node_exporter_service_exists is succeeded
+        - name: Stop node_exporter service
+          become: true
+          systemd:
+            name: node_exporter_test
+            state: stopped
+            enabled: false
+          when: services["node_exporter_test.service"] is defined
 
-    - name: Delete test files
-      become: true
-      file:
-        path: "{{ item }}"
-        state: absent
-      loop:
-        - /etc/systemd/system/node_exporter_test.service
+        - name: Delete test files
+          become: true
+          file:
+            path: "{{ item }}"
+            state: absent
+          loop:
+            - /etc/systemd/system/node_exporter_test.service
+      when: ansible_service_mgr == "systemd"
 
 - name: Destroy
   hosts: all
