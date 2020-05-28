@@ -39,8 +39,6 @@
     - ansible_distribution == "MacOSX"
 
 - name: Setup systemd for node_exporter on {{ ansible_architecture }}
-  include_tasks: setup-rhel.yml
+  include_tasks: setup-systemd.yml
   when:
-    - ansible_distribution == "RedHat"
-    - ansible_architecture in ["ppc64le", "s390x"]
-    - ansible_distribution_major_version is version("8", "==")
+    - ansible_service_mgr == "systemd"
