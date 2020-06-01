@@ -22,5 +22,8 @@ galaxy_info:
     - name: macosx
       versions:
         - 10.14
+    - name: suse
+      versions:
+        - 15
   galaxy_tags:
     - nodeexporter

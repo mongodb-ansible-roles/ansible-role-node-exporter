@@ -12,6 +12,7 @@ platforms:
   #- name: macos-1014
   - name: rhel81-power8
   - name: rhel80-s390x
+  - name: suse15-s390x
   - name: ubuntu1804-s390x
   - name: ubuntu1804-ppc64le
 provisioner:
