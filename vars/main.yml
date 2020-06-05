@@ -10,4 +10,5 @@ distro_dict:
   Darwin: darwin
   RedHat: linux
   Suse: linux
+  Ubuntu: linux
 distro: "{{ distro_dict[ansible_os_family] }}"
