@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.5.0...v1.6.0) (2020-06-05)
+
+
+### Features
+
+* Add ubuntu1604-ppc ([#6](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/issues/6)) ([5fc9746](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/5fc97464ad36e4333108315fb1f5e7c4c71f3285))
+
 # [1.5.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.4.0...v1.5.0) (2020-06-05)
 
 
