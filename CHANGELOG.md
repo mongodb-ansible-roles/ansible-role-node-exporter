@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.4.0...v1.5.0) (2020-06-05)
+
+
+### Features
+
+* Add Suse support ([#5](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/issues/5)) ([351e208](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/351e2085c467ea040bffc1cce920649b611c6f64))
+
 # [1.4.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.3.0...v1.4.0) (2020-05-28)
 
 
