@@ -1,10 +1,9 @@
 [Unit]
-Description={{ node_exporter_systemd_description }}
+Description=Node Exporter
 
 [Service]
-User={{ node_exporter_systemd_user }}
-EnvironmentFile={{ node_exporter_sysconfig_file_dest }}
-ExecStart={{ node_exporter_systemd_start_cmd }}
+User=root
+ExecStart={{ node_exporter_final_dest }}/node_exporter --web.listen-address=":{{ node_exporter_listen_port }}"
 
 [Install]
 WantedBy=multi-user.target

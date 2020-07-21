@@ -3,16 +3,7 @@
   become: true
   template:
     src: node_exporter.service.j2
-    dest: "{{ node_exporter_systemd_service_file_dest }}/{{ node_exporter_systemd_name }}.service"
-    owner: root
-    group: root
-    mode: 0600
-
-- name: Copy over sysconfig for node_exporter
-  become: true
-  template:
-    src: sysconfig.node_exporter.j2
-    dest: "{{ node_exporter_sysconfig_file_dest }}"
+    dest: "{{ node_exporter_service_file_dest }}/{{ node_exporter_service_name }}.service"
     owner: root
     group: root
     mode: 0600
@@ -22,4 +13,4 @@
   systemd:
     enabled: true
     state: started
-    name: "{{ node_exporter_systemd_name }}"
+    name: "{{ node_exporter_service_name }}"

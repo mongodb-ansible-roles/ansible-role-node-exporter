@@ -10,29 +10,26 @@
   become: true
   template:
     src: org.mongodb.node_exporter.plist.j2
-    dest: "{{ node_exporter_plist_dest }}"
+    dest: "{{ node_exporter_service_file_dest }}"
     owner: root
     group: wheel
     mode: 0600
 
 - name: Check if node_exporter daemon is running
   become: true
-  shell: launchctl list | grep {{ node_exporter_plist_label }}
+  shell: launchctl list | grep {{ node_exporter_service_name }}
   changed_when: false
   ignore_errors: true
   register: launchctl_list
 
 - name: Start node_exporter daemon
   become: true
-  command: launchctl load {{ node_exporter_plist_dest }}
+  command: launchctl load {{ node_exporter_service_file_dest }}
   when: launchctl_list is not succeeded
 
 - name: Check if node_exporter daemon is running
   become: true
-  shell: launchctl list | grep {{ node_exporter_plist_label }}
+  shell: launchctl list | grep {{ node_exporter_service_name }}
   changed_when: false
   ignore_errors: true
   register: launchctl_list
-
-- debug:
-    msg: "{{ launchctl_list }}"
