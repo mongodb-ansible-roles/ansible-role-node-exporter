@@ -1,7 +1,0 @@
----
-node_exporter_sysconfig_file_dest: /etc/sysconfig/node_exporter
-node_exporter_systemd_description: Node Exporter
-node_exporter_systemd_name: node_exporter
-node_exporter_systemd_service_file_dest: /etc/systemd/system
-node_exporter_systemd_start_cmd: "{{ node_exporter_final_dest }}/node_exporter $OPTIONS"
-node_exporter_systemd_user: root
