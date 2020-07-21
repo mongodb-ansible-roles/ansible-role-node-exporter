@@ -7,3 +7,4 @@
         name: "ansible-role-node-exporter"
       vars:
         node_exporter_version: 1.0.0-rc.0
+        node_exporter_service_file_dest: /etc/systemd/system/
