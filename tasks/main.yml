@@ -42,3 +42,8 @@
   include_tasks: setup-systemd.yml
   when:
     - ansible_service_mgr == "systemd"
+
+- name: Setup upstart for node_exporter on {{ ansible_architecture }}
+  include_tasks: setup-upstart.yml
+  when:
+    - ansible_service_mgr == "upstart"
