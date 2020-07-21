@@ -12,12 +12,8 @@ Role Variables
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
 | `node_exporter_final_dest` | Directory where `node_exporter` should be installed | string | `/usr/local/bin` | true |
-| `node_exporter_sysconfig_file_dest` | Where to put `node_exporter` config flags | string | `/etc/sysconfig/node_exporter` | false | 
-| `node_exporter_systemd_description` | Description of systemd service | string | Node Exporter | false |
-| `node_exporter_systemd_name` | Name of the systemd service | string | `node_exporter` | false |
-| `node_exporter_systemd_service_file_dest` | Location to place systemd file | string | `/etc/systemd/system` | false |
-| `node_exporter_systemd_start_cmd` | Command to execute to start `node_exporter` | string | `/usr/local/bin/node_exporter $OPTIONS` | false |
-| `node_exporter_systemd_user` | User who will run the systemd service | string | `root` | false |
+| `node_exporter_service_name` | Name of the service | string | `node_exporter` | false |
+| `node_exporter_service_file_dest` | Location to place service file | string | `""` | false |
 | `node_exporter_url` | URL to download `node_exporter` from. This can be overwritten | string | `https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ nod  e_exporter_version }}.{{ distro }}-{{ architecture }}.tar.gz` | true |
 | `node_exporter_version` | Version of `node_exporter` to install | string | `1.0.0-rc.0` | true |
 
@@ -53,6 +49,11 @@ platforms:
   - name: my-host-dev
 ...
 ```
+
+Testing on Static Hosts
+-----------------------
+
+The tests that run on static hosts will copy over the corresponding service file to the relevant location on the machine to allow the service to work, name the service `node_exporter_test` and run on port 9101, so that it does not conflict with any exiting default `node_exporter` services running on the machine. During cleanup, the test service is stopped, service file is deleted and test directories are also deleted.
 
 MacOS Specific Notes
 --------------------
