@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.6.0...v1.7.0) (2020-07-24)
+
+
+### Features
+
+* Adds support for upstart service manager ([#7](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/issues/7)) ([95fe400](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/95fe400ce020211b7729e3fd7cd2bb88b27a0156))
+
 # [1.6.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.5.0...v1.6.0) (2020-06-05)
 
 
