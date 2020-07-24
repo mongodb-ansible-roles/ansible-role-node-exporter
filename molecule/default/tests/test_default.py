@@ -12,3 +12,6 @@ def test_node_exporter(host):
     cmd = host.run("/usr/local/bin/node_exporter --version 2>&1 |"
                    "sed -n 1p | awk '{print $3}'")
     assert cmd.stdout == "1.0.0-rc.0\n"
+    cmd = host.run("curl localhost:9100/metrics | "
+                   "grep node_exporter_build_info")
+    assert cmd.succeeded

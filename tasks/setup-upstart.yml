@@ -1,0 +1,15 @@
+---
+- name: Copy over service file template for node_exporter
+  become: true
+  template:
+    src: node_exporter.init.d.j2
+    dest: "{{ node_exporter_service_file_dest }}/{{ node_exporter_service_name }}"
+    owner: root
+    group: root
+    mode: 0700
+
+- name: Start {{ node_exporter_service_name }}
+  become: true
+  service:
+    state: started
+    name: "{{ node_exporter_service_name }}"

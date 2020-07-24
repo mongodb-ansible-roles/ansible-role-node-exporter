@@ -1,0 +1,68 @@
+#!/bin/bash
+#
+# /etc/rc.d/init.d/{{ node_exporter_service_name }}
+#
+#  Prometheus node exporter
+#
+#  description: Prometheus node exporter
+#  processname: {{ node_exporter_service_name }}
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+PROG={{ node_exporter_final_dest }}/node_exporter
+USER=root
+LOGFILE=/var/log/{{ node_exporter_service_name }}.log
+LOCKFILE=/var/run/{{ node_exporter_service_name }}.pid
+
+start() {
+    echo -n "Starting {{ node_exporter_service_name }}: "
+    daemon --user $USER --pidfile="$LOCKFILE" "$PROG --web.listen-address=':{{ node_exporter_listen_port }}' &>$LOGFILE &"
+    echo $(pgrep -f $PROG) >$LOCKFILE
+    echo
+}
+
+stop() {
+    echo -n "Shutting down {{ node_exporter_service_name }}: "
+    kill $(cat $LOCKFILE)
+    rm -f $LOCKFILE
+    echo
+}
+
+status() {
+        printf "%-50s" "Checking {{ node_exporter_service_name }}..."
+    if [ -f $LOCKFILE ]; then
+        PID=$(cat $LOCKFILE)
+            if [ -z "$(ps axf | grep ${PID} | grep -v grep)" ]; then
+                printf "%s\n" "The process appears to be dead but pidfile still exists"
+            else
+                echo "Running, the PID is $PID"
+            fi
+    else
+        printf "%s\n" "Service not running"
+    fi
+}
+
+case "$1" in
+    start)
+    start
+    ;;
+    stop)
+    stop
+    ;;
+    status)
+    status
+    ;;
+    restart)
+    stop
+    start
+    ;;
+    reload)
+    echo "Sending SIGHUP to {{ node_exporter_service_name }}"
+    kill -SIGHUP $(pgrep -f {{ node_exporter_service_name }})
+    ;;
+    *)
+        echo "Usage: service {{ node_exporter_service_name }} {start|stop|status|reload|restart}"
+        exit 1
+    ;;
+esac

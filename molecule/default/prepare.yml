@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Install curl to run test
+      package:
+        name: curl

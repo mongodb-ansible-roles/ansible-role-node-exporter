@@ -1,3 +1,0 @@
----
-node_exporter_plist_dest: /Library/LaunchDaemons/org.mongodb.node_exporter.plist
-node_exporter_plist_label: node_exporter
