@@ -3,7 +3,7 @@ Description=Node Exporter
 
 [Service]
 User=root
-ExecStart={{ node_exporter_final_dest }}/node_exporter --web.listen-address=":{{ node_exporter_listen_port }}"
+ExecStart={{ node_exporter_final_dest }}/node_exporter --web.listen-address=:{{ node_exporter_listen_port }}
 
 [Install]
 WantedBy=multi-user.target
