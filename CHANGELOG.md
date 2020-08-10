@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.7.0...v1.7.1) (2020-08-10)
+
+
+### Bug Fixes
+
+* Remove quotes from listener port ([#8](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/issues/8)) ([86fca06](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/86fca06e62b9390a63c976c24b7b3a71355389de))
+
 # [1.7.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.6.0...v1.7.0) (2020-07-24)
 
 
