@@ -12,6 +12,7 @@ Role Variables
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
 | `node_exporter_final_dest` | Directory where `node_exporter` should be installed | string | `/usr/local/bin` | true |
+| `node_exporter_flags` | Extra flags to run `node_exporter` with | string | `""` | false |
 | `node_exporter_service_name` | Name of the service | string | `node_exporter` | false |
 | `node_exporter_service_file_dest` | Location to place service file | string | `""` | false |
 | `node_exporter_url` | URL to download `node_exporter` from. This can be overwritten | string | `https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ nod  e_exporter_version }}.{{ distro }}-{{ architecture }}.tar.gz` | true |

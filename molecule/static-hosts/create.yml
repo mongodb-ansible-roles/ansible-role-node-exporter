@@ -5,5 +5,6 @@
   tasks:
     - name: Create node exporter test directory
       file:
+        mode: 0755
         path: /tmp/node_exporter_test
         state: directory
