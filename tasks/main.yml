@@ -22,6 +22,7 @@
     remote_src: true
     dest: "{{ node_exporter_final_dest }}"
     list_files: true
+    mode: 0755
   when:
     - not executable.stat.exists or not version_match
   environment:

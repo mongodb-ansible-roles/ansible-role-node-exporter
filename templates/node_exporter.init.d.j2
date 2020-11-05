@@ -17,7 +17,7 @@ LOCKFILE=/var/run/{{ node_exporter_service_name }}.pid
 
 start() {
     echo -n "Starting {{ node_exporter_service_name }}: "
-    daemon --user $USER --pidfile="$LOCKFILE" "$PROG --web.listen-address=':{{ node_exporter_listen_port }}' &>$LOGFILE &"
+    daemon --user $USER --pidfile="$LOCKFILE" "$PROG --web.listen-address=':{{ node_exporter_listen_port }}' {{ node_exporter_flags }} &>$LOGFILE &"
     echo $(pgrep -f $PROG) >$LOCKFILE
     echo
 }
