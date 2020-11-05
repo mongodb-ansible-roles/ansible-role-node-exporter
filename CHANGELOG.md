@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.7.1...v1.8.0) (2020-11-05)
+
+
+### Features
+
+* Allow flags for node_exporter ([#9](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/issues/9)) ([581f8f8](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/581f8f888668e5fdc33f201b835a379623497606))
+
 ## [1.7.1](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.7.0...v1.7.1) (2020-08-10)
 
 
