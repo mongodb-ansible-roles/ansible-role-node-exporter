@@ -4,6 +4,7 @@ architecture_dict:
   s390x: s390x
   ppc64le: ppc64le
   aarch64: arm64
+  arm64: arm64
 architecture: "{{ architecture_dict[ansible_architecture] }}"
 distro_dict:
   Debian: linux
