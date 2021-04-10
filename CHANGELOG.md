@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.8.0...v1.9.0) (2021-04-10)
+
+
+### Features
+
+* Add support for arm64 ([da75e67](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/commit/da75e67ffe48df86b83cf7e3f797fa41ba2f8fdc))
+
 # [1.8.0](https://github.com/mongodb-ansible-roles/ansible-role-node-exporter/compare/v1.7.1...v1.8.0) (2020-11-05)
 
 
